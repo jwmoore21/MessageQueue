@@ -51,7 +51,7 @@ Returns:     If successful, returns one result set; if not successful, returns
 Author:      John W. Moore
 Version:     1.0.0
 Copyright:   (c) 2019
-License:     Restricted
+License:     GNU GPLv3
 
 *******************************************************************************/
 BEGIN
