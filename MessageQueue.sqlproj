@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>MessageQueue</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{012d41b7-9b6d-4913-9b77-ebcafb13dd3a}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>MessageQueue</RootNamespace>
+    <AssemblyName>MessageQueue</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="eventLogs" />
+    <Folder Include="eventLogs\Stored Procedures" />
+    <Folder Include="eventLogs\Tables" />
+    <Folder Include="msgQueue" />
+    <Folder Include="msgQueue\Tables" />
+    <Folder Include="masterLists" />
+    <Folder Include="masterLists\Tables" />
+    <Folder Include="webuser" />
+    <Folder Include="webuser\Tables" />
+    <Folder Include="PostDeploymentData" />
+    <Folder Include="PreDeploymentData" />
+    <Folder Include="PublishScripts" />
+    <Folder Include="Security" />
+    <Folder Include="audit" />
+    <Folder Include="audit\Tables" />
+    <Folder Include="masterLists\Stored Procedures" />
+    <Folder Include="masterLists\Stored Procedures\uspDel" />
+    <Folder Include="masterLists\Stored Procedures\uspIns" />
+    <Folder Include="masterLists\Stored Procedures\uspUpd" />
+    <Folder Include="webuser\Stored Procedures\uspDel" />
+    <Folder Include="webuser\Stored Procedures" />
+    <Folder Include="webuser\Stored Procedures\uspIns" />
+    <Folder Include="webuser\Stored Procedures\uspUpd" />
+    <Folder Include="eventLogs\Stored Procedures\uspIns" />
+    <Folder Include="msgQueue\Stored Procedures" />
+    <Folder Include="msgQueue\Stored Procedures\uspDel" />
+    <Folder Include="msgQueue\Stored Procedures\uspGet" />
+    <Folder Include="msgQueue\Stored Procedures\uspIns" />
+    <Folder Include="msgQueue\Stored Procedures\uspUpd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="eventLogs\Stored Procedures\DatabaseErrorHandler.sql" />
+    <Build Include="eventLogs\Tables\DatabaseErrorLog.sql" />
+    <Build Include="eventLogs\Tables\EventLog.sql" />
+    <Build Include="msgQueue\Tables\ExecutionLog.sql" />
+    <Build Include="msgQueue\Tables\JsonSchema.sql" />
+    <Build Include="msgQueue\Tables\MessageQueue.sql" />
+    <Build Include="masterLists\Tables\DatabaseName.sql" />
+    <Build Include="masterLists\Tables\DatabaseSchema.sql" />
+    <Build Include="masterLists\Tables\DatabaseTable.sql" />
+    <Build Include="masterLists\Tables\Datasource.sql" />
+    <Build Include="masterLists\Tables\DomainName.sql" />
+    <Build Include="masterLists\Tables\FullyQualifiedDomainName.sql" />
+    <Build Include="masterLists\Tables\HostName.sql" />
+    <Build Include="masterLists\Tables\HttpVerb.sql" />
+    <Build Include="masterLists\Tables\Status.sql" />
+    <Build Include="masterLists\Tables\TopLevelDomain.sql" />
+    <Build Include="masterLists\Tables\SecondLevelDomain.sql" />
+    <Build Include="masterLists\Tables\SubHostName.sql" />
+    <Build Include="masterLists\Tables\CountryTLD.sql" />
+    <Build Include="webuser\Tables\UserLogin.sql" />
+    <None Include="PostDeploymentData\000_MasterList.Status.sql" />
+    <None Include="PostDeploymentData\010_Webuser.users.sql" />
+    <Build Include="Security\eventLogs.sql" />
+    <Build Include="Security\masterLists.sql" />
+    <Build Include="Security\msgQueue.sql" />
+    <Build Include="Security\webuser.sql" />
+    <Build Include="masterLists\Tables\EventType.sql" />
+    <None Include="PublishScripts\MessageQueue.publish.xml" />
+    <None Include="PostDeploymentData\001_DatabaseCatalogNames.data.sql" />
+    <None Include="PostDeploymentData\002_DatabaseSchemaNames.data.sql" />
+    <None Include="PostDeploymentData\003_DatabaseTableNames.data.sql" />
+    <Build Include="audit\Tables\AuditCountryTLD.table.sql" />
+    <Build Include="audit\Tables\AuditDatabaseName.table.sql" />
+    <Build Include="audit\Tables\AuditDatabaseSchema.table.sql" />
+    <Build Include="audit\Tables\AuditDatabaseTable.table.sql" />
+    <Build Include="audit\Tables\AuditDatasource.table.sql" />
+    <Build Include="audit\Tables\AuditDomainName.table.sql" />
+    <Build Include="audit\Tables\AuditEventType.table.sql" />
+    <Build Include="audit\Tables\AuditFullyQualifiedDomainName.table.sql" />
+    <Build Include="audit\Tables\AuditHostName.table.sql" />
+    <Build Include="audit\Tables\AuditHttpVerb.table.sql" />
+    <Build Include="audit\Tables\AuditScriptName.table.sql" />
+    <Build Include="audit\Tables\AuditSecondLevelDomain.table.sql" />
+    <Build Include="audit\Tables\AuditStatus.table.sql" />
+    <Build Include="audit\Tables\AuditSubHostName.table.sql" />
+    <Build Include="audit\Tables\AuditTopLevelDomain.table.sql" />
+    <Build Include="Security\audit.sql" />
+    <Build Include="audit\Tables\AuditUserLogin.table.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_CountryTLDByRowGuid.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_CountryTLDWithAudit.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_DatabaseNameByRowGuid.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_DatabaseNameWithAudit.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_DatabaseSchemaByRowGuid.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_DatabaseSchemaWithAudit.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_DatabaseTableByRowGuid.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_DatabaseTableWithAudit.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_DatasourceByRowGuid.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_DatasourceWithAudit.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_DomainNameByRowGuid.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_DomainNameWithAudit.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_EventTypeByRowGuid.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_EventTypeWithAudit.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_FullyQualifiedDomainNameByRowGuid.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_FullyQualifiedDomainNameWithAudit.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_HostNameByRowGuid.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_HostNameWithAudit.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_HttpVerbByRowGuid.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_HttpVerbWithAudit.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_ScriptNameByRowGuid.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_ScriptNameWithAudit.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_SecondLevelDomainByRowGuid.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_SecondLevelDomainWithAudit.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_StatusByRowGuid.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_StatusWithAudit.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_SubHostNameByRowGuid.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_SubHostNameWithAudit.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_TopLevelDomainByRowGuid.sql" />
+    <Build Include="masterLists\Stored Procedures\uspDel\uspDel_TopLevelDomainWithAudit.sql" />
+    <Build Include="masterLists\Stored Procedures\uspIns\uspIns_CountryTLD.sql" />
+    <Build Include="masterLists\Stored Procedures\uspIns\uspIns_DatabaseName.sql" />
+    <Build Include="masterLists\Stored Procedures\uspIns\uspIns_DatabaseSchema.sql" />
+    <Build Include="masterLists\Stored Procedures\uspIns\uspIns_DatabaseTable.sql" />
+    <Build Include="masterLists\Stored Procedures\uspIns\uspIns_Datasource.sql" />
+    <Build Include="masterLists\Stored Procedures\uspIns\uspIns_DomainName.sql" />
+    <Build Include="masterLists\Stored Procedures\uspIns\uspIns_EventType.sql" />
+    <Build Include="masterLists\Stored Procedures\uspIns\uspIns_FullyQualifiedDomainName.sql" />
+    <Build Include="masterLists\Stored Procedures\uspIns\uspIns_HostName.sql" />
+    <Build Include="masterLists\Stored Procedures\uspIns\uspIns_HttpVerb.sql" />
+    <Build Include="masterLists\Stored Procedures\uspIns\uspIns_ScriptName.sql" />
+    <Build Include="masterLists\Stored Procedures\uspIns\uspIns_SecondLevelDomain.sql" />
+    <Build Include="masterLists\Stored Procedures\uspIns\uspIns_Status.sql" />
+    <Build Include="masterLists\Stored Procedures\uspIns\uspIns_SubHostName.sql" />
+    <Build Include="masterLists\Stored Procedures\uspIns\uspIns_TopLevelDomain.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_CountryTLDByRowGuid.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_CountryTLDWithAudit.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_DatabaseNameByRowGuid.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_DatabaseNameWithAudit.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_DatabaseSchemaByRowGuid.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_DatabaseSchemaWithAudit.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_DatabaseTableByRowGuid.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_DatabaseTableWithAudit.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_DatasourceByRowGuid.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_DatasourceWithAudit.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_DomainNameByRowGuid.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_DomainNameWithAudit.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_EventTypeByRowGuid.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_EventTypeWithAudit.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_FullyQualifiedDomainNameByRowGuid.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_FullyQualifiedDomainNameWithAudit.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_HostNameByRowGuid.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_HostNameWithAudit.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_HttpVerbByRowGuid.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_HttpVerbWithAudit.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_ScriptNameByRowGuid.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_ScriptNameWithAudit.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_SecondLevelDomainByRowGuid.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_SecondLevelDomainWithAudit.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_StatusByRowGuid.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_StatusWithAudit.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_SubHostNameByRowGuid.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_SubHostNameWithAudit.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_TopLevelDomainByRowGuid.sql" />
+    <None Include="masterLists\Stored Procedures\uspUpd\uspUpd_TopLevelDomainWithAudit.sql" />
+    <Build Include="msgQueue\Tables\MessageQueueBasic.sql" />
+    <Build Include="msgQueue\Tables\MessageQueueJsonSchema.sql" />
+    <Build Include="webuser\Stored Procedures\uspDel\uspDel_UserLoginByRowGuid.sql" />
+    <Build Include="webuser\Stored Procedures\uspDel\uspDel_UserLoginWithAudit.sql" />
+    <Build Include="webuser\Stored Procedures\uspIns\uspIns_UserLogin.sql" />
+    <Build Include="webuser\Stored Procedures\uspUpd\uspUpd_UserLoginByRowGuid.sql" />
+    <Build Include="webuser\Stored Procedures\uspUpd\uspUpd_UserLoginWithAudit.sql" />
+    <Build Include="eventLogs\Stored Procedures\uspIns\uspIns_DatabaseErrorLog.sql" />
+    <Build Include="eventLogs\Stored Procedures\uspIns\uspIns_EventLog.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspDel\uspDel_ExecutionLogByRowGuid.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspDel\uspDel_ExecutionLogWithAudit.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspDel\uspDel_JsonSchemaByRowGuid.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspDel\uspDel_JsonSchemaWithAudit.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspDel\uspDel_MessageQueueByRowGuid.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspDel\uspDel_MessageQueueWithAudit.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspGet\uspGet_MessagesFromQueueAndReserve.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspIns\uspIns_ExecutionLog.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspIns\uspIns_JsonSchema.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspIns\uspIns_MessageQueue.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspUpd\uspUpd_ExecutionLogByRowGuid.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspUpd\uspUpd_ExecutionLogWithAudit.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspUpd\uspUpd_JsonSchema.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspUpd\uspUpd_JsonSchemaByRowGuid.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspUpd\uspUpd_JsonSchemaWithAudit.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspUpd\uspUpd_MessageQueue.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspUpd\uspUpd_MessageQueueByRowGuid.sql" />
+    <Build Include="msgQueue\Stored Procedures\uspUpd\uspUpd_MessageQueueWithAudit.sql" />
+    <Build Include="audit\Tables\AuditMessageQueue.table.sql" />
+    <Build Include="audit\Tables\AuditJsonSchema.table.sql" />
+    <Build Include="audit\Tables\AuditExecutionLog.table.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="masterLists\Tables\ScriptName.sql" />
+    <None Include="PostDeploymentData\555_MsqQueue.JsonSchema.sql" />
+    <None Include="PostDeploymentData\358_MasterList.SecondLevelDomain.sql" />
+    <None Include="PostDeploymentData\360_MasterList.TopLevelDomain.sql" />
+    <None Include="PostDeploymentData\361_MasterList.DomainName.sql" />
+    <None Include="PostDeploymentData\362_MasterList.SubHostName.sql" />
+    <None Include="PostDeploymentData\363_MasterList.HostName.sql" />
+    <None Include="PostDeploymentData\364_MasterList.FQDN.sql" />
+    <None Include="PostDeploymentData\375_MasterList.HttpVerb.sql" />
+    <None Include="PostDeploymentData\303_MasterList.CountryTld.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PostDeploymentData\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="MessageQueue.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+  </ItemGroup>
+</Project>
